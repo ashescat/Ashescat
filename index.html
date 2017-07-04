@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script>
+function doDayCount()
+{	
+	var days = daysBetween("2017/07/04 10:00", Date());
+	document.getElementById("time_count_message").innerHTML="Website created "+days.toFixed(0)+" days ago.\nYou go, girl 🤓";
+}
+
+function treatAsUTC(date) {
+    var result = new Date(date);
+    result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+    return result;
+}
+
+function daysBetween(startDate, endDate) {
+    var millisecondsPerDay = 24 * 60 * 60 * 1000;
+    return (treatAsUTC(endDate) - treatAsUTC(startDate)) / millisecondsPerDay;
+}
+
+</script>
+<style>
+#centeredDiv {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+#centeredDiv ul {
+    display: inline-block;
+    text-align: left;
+    padding: 0;
+}
+</style>
+</head>
+
+<body onload="doDayCount()">
+
+<center><h1>Laura Wu</h1></center>
+
+<div id="centeredDiv">
+<h3>Education</h3>
+<ul>
+  <li>Received bachelor degree in Industrial and Information Management department of Cheng Kung University, 2015</li>
+  <li>Received master degree in Information Management department of Cheng Kung University, 2016</li>
+</ul>
+
+<h3></h3>
+</div>
+
+<!--<button type="button" onclick="doDayCount()">Try it</button>-->
+<center><p id="time_count_message" style="color:#dddddd"">Time</p></center>
+
+</body>
+</html>
